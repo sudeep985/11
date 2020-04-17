@@ -1,0 +1,51 @@
+#include<stdio.h>
+
+int g[10][10],visited[10],n;
+
+void DFS(int i) {
+
+ int k;
+
+ printf("\n%d,i");
+
+ visited[i]=1;
+
+ for (k=0;k<n;k++){
+
+ if (!visited[k]&g[i][k]==1)
+
+ DFS(k);
+
+ }
+
+}
+
+void main() {
+
+ int i,k;
+
+ printf("Enter number of vertices:");
+
+ scanf("%d",&n);
+
+ printf("\nEnter adjancency matrix of the graph");
+
+ for (i=0;i<n;i++){
+
+ for (k=0;k<n;k++){
+
+ scanf("%d",&g[i][k]);
+
+ }
+
+ }
+
+ for(i=0;i<n;i++){
+
+ visited[i]=0;
+
+ DFS(0);
+
+ }
+
+}
